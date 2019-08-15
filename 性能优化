@@ -13,7 +13,9 @@ indexDB（web非关系型数据库） https://wangdoc.com/javascript/bom/indexed
 
 5.webpack按需打包  优化首屏时间
 
-6.arrayBuffer + Blob + URL.createObjectURL()   将请求结果转化为blobUrl存储在本地磁盘缓存，减少请求
+6.第三方库使用cdn引入代替npm引入，减小打包文件提交，优化首屏时间
+
+7.arrayBuffer + Blob + URL.createObjectURL()   将请求结果转化为blobUrl存储在本地磁盘缓存，减少请求
 
 
 
