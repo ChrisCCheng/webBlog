@@ -1,0 +1,65 @@
+1. es6
+
+  npm i -D babel-polyfill
+  
+  module.export = {
+    entry: {
+      app:['babel-polyfill', './src/main.js']
+    }
+  }
+  
+ 2.drag和drop
+ 
+  drag和drop之间传递数据只能通过字符串
+ 
+  dragstart方法中：
+  if (getBroserType().indexOf('IE') !== -1) { // 兼容IE
+    e.dataTransfer.setData('text', JSON.stringify{
+      imageUrl: imageUrl,
+      id: id
+    })
+  } else {
+    e.dataTransfer.setData('imageUrl', imageUrl)
+    e.dataTransfer.setData('id', id)
+  }
+  
+  drop方法中：
+  if (getBroserType().indexOf('IE') !== -1) { // 兼容IE
+    let temp = JSON.parse(e.dataTransfer.getData('text'))
+    let {imageUrl, id} = temp
+  } else {
+    let imageUrl = e.dataTransfer.getData('imageUrl')
+    let id = e.dataTransfer.getData('id')
+  }
+  
+  
+ 
+ 3.a标签 download
+ 
+ /**
+ * @description 下载图片到本地
+ * @param {base64 String} image base64图片
+ * @param {String} name 图片名称
+ */
+export const downloadPicture = (dataUrl, name) => {
+  if (window.navigator.msSaveOrOpenBlob) { // 兼容IE
+    let mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0]
+    let byteString = atob(dataUrl.split(',')[1])
+    let arrayBuffer = new ArrayBuffer(byteString.length)
+    let intArray = new Uint8Array(arrayBuffer)
+    for (let i = 0; i < byteString.length; i++) {
+      intArray[i] = byteString.charCodeAt(i)
+    }
+    let blob = new Blob([intArray], {
+      type: mimeString
+    })
+    window.navigator.msSaveOrOpenBlob(blob, name)
+  } else {
+    let a = document.createElement('a')
+    a.href = dataUrl
+    a.download = name
+    a.click()
+  }
+}
+  
+  
