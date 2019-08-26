@@ -13,3 +13,16 @@
 
 
 具体使用参考MDN： https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+实例应用：
+1. 数组去重排序
+// 使用sort+filter+indexOf在原数组基础上进行排序去重，不创建新的数组空间
+let arr = [3,6,9,8,12,33,3,6,8,34,5,7,6]
+const sortAndDeweighting = (arr) => {
+  return arr.sort((a,b)=>{ // 排序
+    return a-b
+  }).filter((item, index, arr)=>{ // 去重
+    return arr.indexOf(item, 0) === index
+  })
+}
+console.log(sortAndDeweighting(arr))  //output:[3, 5, 6, 7, 8, 9, 12, 33, 34]
