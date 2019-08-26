@@ -2,6 +2,7 @@
 cookies（4k）
 localStorage  sessionStorage   （5M）
 indexDB（web非关系型数据库） https://wangdoc.com/javascript/bom/indexeddb.html
+
 2.webworker  实现js多线程，不影响UI主线程渲染
  对于webpack项目
  worker-loader  线程中处理数据后通过postMessage传递回主线程（UI线程）
@@ -9,11 +10,13 @@ indexDB（web非关系型数据库） https://wangdoc.com/javascript/bom/indexed
  
 3.gzip 压缩请求资源大小
 
+ 只要在服务器端和webpack配置中同时开启gzip压缩就可以了
+
 4.预加载 preload/prefetch
 
 5.webpack按需打包  优化首屏时间
 
-6.第三方库使用cdn引入代替npm引入，减小打包文件提交，优化首屏时间
+6.第三方库使用cdn引入代替npm引入，减小打包文件体积，优化首屏时间
 
 7.arrayBuffer + Blob + URL.createObjectURL()   将请求结果转化为blobUrl存储在本地磁盘缓存，减少请求
 
