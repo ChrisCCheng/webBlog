@@ -1,0 +1,15 @@
+数组操作是js当中非常重要的一个基本功,下面我就总结一下。
+数组操作方法大致三类：1.队员数组进行操作的方法；2.不改变原数组的方法；3.高级函数，遍历、排序、过滤等。
+
+1.改变当前数组的方法：copyWithin()、fill()、pop()、push()、reverse()、shift()、unshift()、splice()、sort()、
+
+2.不修改原数组，返回新数组的方法： contact()、slice()、
+
+3.高阶函数：
+@1.遍历： forEach()、every()、some()、entries()
+@2.过滤： filter()
+@3.批处理：map()
+@4.收敛：reduce()
+
+
+具体使用参考MDN： https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array
