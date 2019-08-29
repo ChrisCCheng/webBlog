@@ -36,6 +36,8 @@
  
  3.a标签 download
  
+ IE中a标签不支持download属性
+ 
  /**
  * @description 下载图片到本地
  * @param {base64 String} image base64图片
@@ -61,5 +63,31 @@ export const downloadPicture = (dataUrl, name) => {
     a.click()
   }
 }
+
+4.鼠标滚轮事件mousewheel
+
+// 1.事件的名称不同 chrome，IE等浏览器均是mousewheel；而fireFox是DOMMouseScroll
+document.addEventListener('mousewheel', handlerEvent) // chrome，IE等
+document.addEventListener('DOMMouseScroll', handlerEvent) // 兼容firefox
+
+// 2.滚轮方向不同    chrome，IE等浏览器均是向上滚动为正值(+120)、向下滚动为负值(-120)；而Firefox则是向上滚动为负值(-5)，向下滚动为正值(+5)；
+// 3.值不同    Firefox对滚轮滚动的值保存在event对象中的detail属性里，而其它浏览器保存在event对象中的wheelDelta属性；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
