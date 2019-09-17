@@ -1,0 +1,100 @@
+水平垂直居中是web开发中最常见的一种布局方式，下面来介绍10中常见的方法！
+
+1.absolute + 负margin	（需要知道居中（子）元素的宽高）
+
+2.absolute + margin auto	（需要知道居中（子）元素的宽高）
+
+3.absolute + calc	（需要知道居中（子）元素的宽高）
+
+4.absolute + transform	(css3,要考虑兼容性)
+
+  .parent{
+      position: relative;
+  }
+  .child{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+5.writing-mode + text-align
+
+  <div class="parent">'
+      <div class="parent-inner">
+          <div class="child">hhhh</div>
+      </div>
+  </div>
+  .parent{
+      writing-mode: vertical-lr;
+      text-align: center;
+  }
+  .parent-inner{
+      writing-mode: horizontal-tb;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+  }
+  .child{
+      display: inline-block;
+      margin: auto;
+      text-align: left;
+  }
+
+6.lineheight
+
+  .parent{
+      line-height: 400px;
+      text-align: center;
+      font-size: 0px;
+  }
+  .child{
+      font-size: 16px;
+      display: inline-block;]
+      vertical-align: middle;
+      line-height: initial;
+      text-align: left;
+  }
+
+7.table （html table标签，代码冗余）	
+
+  <table>
+    <tr>
+      <td class="parent">
+          <div class="child"></div>
+      </td>
+    </tr>
+  </table>
+  .parent{
+      text-align: center;
+  }
+  .child{
+      display: inline-block;
+  }
+
+8.css-table	
+
+  .parent {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+    
+    
+9.flex（移动端首选）
+
+    .parent{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    
+10.grid
+
+    .parent{
+        display: grid;
+    }
+    .child{
+        align-self: center;
+        justify-self: center;
+    }
